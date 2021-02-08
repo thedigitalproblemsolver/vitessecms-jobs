@@ -4,7 +4,6 @@ namespace VitesseCms\Job\Listeners;
 
 use VitesseCms\Admin\Models\AdminMenu;
 use VitesseCms\Admin\Models\AdminMenuNavBarChildren;
-use VitesseCms\Datagroup\Models\Datagroup;
 use Phalcon\Events\Event;
 
 class AdminMenuListener
@@ -13,9 +12,7 @@ class AdminMenuListener
     {
         if ($adminMenu->getUser()->getPermissionRole() === 'superadmin') :
             $children = new AdminMenuNavBarChildren();
-            $children->addChild('Job-queue', 'admin/job/adminjobqueue/adminList')
-                ->addChild('Execute job', 'job/JobQueue/execute','_blank')
-            ;
+            $children->addChild('Activity log', 'admin/log/adminlog/adminList');
             $adminMenu->addDropdown('System',$children);
         endif;
     }

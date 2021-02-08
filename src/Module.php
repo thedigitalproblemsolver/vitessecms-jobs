@@ -13,7 +13,7 @@ class Module extends AbstractModule
 {
     public function registerServices(DiInterface $di, string $string = null)
     {
-        parent::registerServices($di, 'Datagroup');
+        parent::registerServices($di, 'Job');
         if (AdminUtil::isAdminPage()) :
 
         else :
